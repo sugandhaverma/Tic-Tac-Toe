@@ -1,24 +1,105 @@
+:root {
+    color-scheme: light;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    color: #172033;
+    background: #f4f7fb;
+    font-synthesis: none;
+    text-rendering: optimizeLegibility;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
-    display: flex;
-    height: 100vh;
+    display: grid;
+    min-height: 100vh;
+    min-height: 100svh;
     margin: 0;
-    justify-content: center;
-    align-items: center;
+    place-items: center;
+    padding: 1.5rem;
+}
+
+.game {
+    width: min(100%, 22rem);
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: clamp(2rem, 8vw, 2.75rem);
+    letter-spacing: -0.04em;
+}
+
+.game-status {
+    min-height: 1.75rem;
+    margin: 0.75rem 0 1.25rem;
+    color: #536078;
+    font-size: 1.05rem;
+    font-weight: 600;
 }
 
 .board {
     display: grid;
-    grid-template-columns: repeat(3, 100px);
-    grid-gap: 10px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 0.65rem;
 }
 
 .cell {
-    width: 100px;
-    height: 100px;
-    border: 1px solid black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
+    display: grid;
+    aspect-ratio: 1;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 0.9rem;
+    background: #fff;
+    box-shadow: 0 0.25rem 0.8rem rgb(23 32 51 / 8%);
+    color: #3156d3;
+    font: inherit;
+    font-size: clamp(2.5rem, 14vw, 4rem);
+    font-weight: 750;
     cursor: pointer;
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.cell:disabled {
+    cursor: default;
+}
+
+.cell:not(:disabled):hover {
+    background: #e9efff;
+    transform: translateY(-2px);
+}
+
+.cell:focus-visible,
+.reset-button:focus-visible {
+    outline: 3px solid #3156d3;
+    outline-offset: 3px;
+}
+
+.reset-button {
+    margin-top: 1.5rem;
+    padding: 0.75rem 1.25rem;
+    border: 0;
+    border-radius: 999px;
+    background: #3156d3;
+    color: #fff;
+    font: inherit;
+    font-weight: 650;
+    cursor: pointer;
+    transition: background-color 150ms ease, transform 150ms ease;
+}
+
+.reset-button:hover {
+    background: #2444b5;
+    transform: translateY(-1px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
 }

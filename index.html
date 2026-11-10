@@ -3,11 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tic Tac Toe</title>
+    <meta name="theme-color" content="#f4f7fb">
+    <title>Tic-Tac-Toe</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="board"></div>
+    <main class="game">
+        <h1>Tic-Tac-Toe</h1>
+        <p class="game-status" aria-live="polite" aria-atomic="true"></p>
+        <div class="board" role="group" aria-label="Tic-Tac-Toe board">
+            <button class="cell" type="button" data-index="0" aria-label="Cell 1, empty"></button>
+            <button class="cell" type="button" data-index="1" aria-label="Cell 2, empty"></button>
+            <button class="cell" type="button" data-index="2" aria-label="Cell 3, empty"></button>
+            <button class="cell" type="button" data-index="3" aria-label="Cell 4, empty"></button>
+            <button class="cell" type="button" data-index="4" aria-label="Cell 5, empty"></button>
+            <button class="cell" type="button" data-index="5" aria-label="Cell 6, empty"></button>
+            <button class="cell" type="button" data-index="6" aria-label="Cell 7, empty"></button>
+            <button class="cell" type="button" data-index="7" aria-label="Cell 8, empty"></button>
+            <button class="cell" type="button" data-index="8" aria-label="Cell 9, empty"></button>
+        </div>
+        <button class="reset-button" type="button">New game</button>
+    </main>
     <script src="tic-tac.js"></script>
 </body>
 </html>
